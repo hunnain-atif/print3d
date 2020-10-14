@@ -45,7 +45,7 @@ function UploadPage() {
                 <FileUpload/>
                 <br />
                 <br />
-                <label>Name</label>
+                <label>Product Name</label>
                 <Input onChange={onTitleChange} value={TitleValue} />
                 <br />
                 <br />
