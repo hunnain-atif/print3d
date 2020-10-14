@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Typography, Button, Form, message, Input, Icon } from 'antd'; 
+import FileUpload from "../../utils/FileUpload"
 
 const {Title} = Typography; 
 const {TextArea} = Input; 
@@ -41,6 +42,7 @@ function UploadPage() {
 
             <Form onSubmit>
                 {/*DropZone*/}
+                <FileUpload/>
                 <br />
                 <br />
                 <label>Name</label>
