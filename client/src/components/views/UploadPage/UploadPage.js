@@ -1,5 +1,9 @@
 import React, {useState} from 'react'
 import { Typography, Button, Form, message, Input, Icon } from 'antd'; 
+
+const {Title} = Typography; 
+const {TextArea} = Input; 
+
 const Categories = [
     {key:1, value: "3D-Model"}, 
     {key:2, value: "3D-Printed Object"}
@@ -32,23 +36,23 @@ function UploadPage() {
     return (
         <div style={{maxWidth: '700px', margin: '2rem auto'}}>
             <div style={{textAlign: 'center', marginBottom:'2rem'}}>
-                <h2>Upload Product</h2>
+                <Title level={2}>Upload Product</Title>
             </div>
 
-            <form onSubmit>
+            <Form onSubmit>
                 {/*DropZone*/}
                 <br />
                 <br />
                 <label>Name</label>
-                <input onChange={onTitleChange} value={TitleValue} />
+                <Input onChange={onTitleChange} value={TitleValue} />
                 <br />
                 <br />
                 <label>Description</label>
-                <textarea onChange={onDescriptionChange} value={DescriptionValue} />
+                <TextArea onChange={onDescriptionChange} value={DescriptionValue} />
                 <br />
                 <br />
                 <label>Price ($)</label>
-                <input onChange={onPriceChange} value={PriceValue}  type="number"/>
+                <Input onChange={onPriceChange} value={PriceValue}  type="number"/>
                 <br />
                 <br />
                 <select onChange={onCategoryChange} value={CategoryValue}>
@@ -58,13 +62,10 @@ function UploadPage() {
                 </select>
                 <br />
                 <br />
-                <button onClick>
-                    Submit
-                </button>
-
-
-            </form>
-            
+                <Button onClick>
+                    Upload
+                </Button>
+            </Form>
         </div>
     )
 }
