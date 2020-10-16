@@ -16,6 +16,7 @@
   "author": "John ahn",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.20.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "connect": "^3.7.0",
