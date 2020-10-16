@@ -11,7 +11,7 @@ function FileUpload() {
          }
          formData.append("file", files[0])
 
-         //Axios.post('/api/product/uploadImage', formData, config)
+         Axios.post('/api/product/uploadImage', formData, config)
          .then(response => {
              if(response.data.success) {
                 
