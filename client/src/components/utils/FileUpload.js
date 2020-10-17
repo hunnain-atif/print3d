@@ -41,6 +41,11 @@ function FileUpload(props) {
             </Dropzone>
 
             <div style={{ display: 'flex', width: '350px', height: '240px', overflowX: 'scroll'}}>
+                {Images.map((image, index) => (
+                    <div onClick>
+                        <img style={{ minWidth:"300px", width:'300px', height:'240px'}} src={`http://localhost:5000/${image}`} alt={`productImage-${index}`}/>
+                    </div>
+                ))}
                 <div onClick>
                     <img />
                 </div>
