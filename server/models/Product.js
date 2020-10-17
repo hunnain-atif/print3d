@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 const productSchema = mongoose.Schema({
     writer: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    title:  {
+    title: {
         type: String,
         maxlength: 50
     },
@@ -33,9 +33,9 @@ const productSchema = mongoose.Schema({
     views: {
         type: Number,
         default: 0
-    } 
-}, {timestamps: true})
+    }
+}, { timestamps: true })
 
-const User = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema);
 
-module.exports = { User }
+module.exports = { Product }

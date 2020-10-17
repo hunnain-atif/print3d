@@ -11,7 +11,7 @@ const Categories = [
     {key:2, value: "3D-Printed Object"}
 ]
 
-function UploadPage() {
+function UploadPage(props) {
     
     const [TitleValue, setTitleValue] = useState("")
     const [DescriptionValue, setDescriptionValue] = useState("")
@@ -40,13 +40,41 @@ function UploadPage() {
         setImages(newImages)
     }
 
+    const onSubmit = (event) => {
+        event.preventDefault();
+
+        if (!TitleValue || !DescriptionValue || !PriceValue ||
+            !CategoryValue || !Images) {
+            return alert('fill all the fields first!')
+        }
+
+        const variables = {
+            writer: props.user.userData._id,
+            title: TitleValue,
+            description: DescriptionValue,
+            price: PriceValue,
+            images: Images,
+            categories: CategoryValue,
+        }
+
+        Axios.post('/api/product/uploadProduct', variables)
+            .then(response => {
+                if (response.data.success) {
+                    alert('Product Successfully Uploaded')
+                    props.history.push('/')
+                } else {
+                    alert('Failed to upload Product')
+                }
+            })
+    }
+
     return (
         <div style={{maxWidth: '700px', margin: '2rem auto'}}>
             <div style={{textAlign: 'center', marginBottom:'2rem'}}>
                 <Title level={2}>Upload Product</Title>
             </div>
 
-            <Form onSubmit>
+            <Form onSubmit={onSubmit}>
                 {/*DropZone*/}
                 <FileUpload refreshFunction={updateImages}/>
                 <br />
@@ -70,7 +98,7 @@ function UploadPage() {
                 </select>
                 <br />
                 <br />
-                <Button onClick>
+                <Button onClick={onSubmit}>
                     Upload
                 </Button>
             </Form>
