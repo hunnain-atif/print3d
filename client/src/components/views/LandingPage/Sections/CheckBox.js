@@ -32,10 +32,6 @@ function CheckBox(props) {
         props.handleFilters(newChecked)
     }
 
-    function onChange(e) {
-        console.log(`checked = ${e.target.checked}`);
-    }
-
     const renderCheckboxLists = () => categories.map((value, index) => (
         <React.Fragment key={index}>
             <Checkbox

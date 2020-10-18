@@ -51,8 +51,19 @@ router.post("/getProducts", (req, res) => {
     let sortBy = req.body.sortBy ? req.body.sortBy: "_id"; 
     let limit = req.body.limit ? parseInt(req.body.limit): 100;
     let skip = parseInt(req.body.skip); 
+    
+    let findArgs = {}; 
 
-    Product.find()
+    for (let key in req.body.filters){
+        if(req.body.filters[key].length > 0){
+            if(key === "price"){
+
+            } else{
+                findArgs[key] = req.body.filters[key]; 
+            }
+        }
+    }
+    Product.find(findArgs)
         .populate("writer")
         .sort([[sortBy, order]])
         .skip(skip)
