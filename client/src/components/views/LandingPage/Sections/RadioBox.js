@@ -1,4 +1,6 @@
 import React from 'react'
+import {Collapse, Radio} from 'antd'; 
+const {Panel} = Collapse; 
 
 const price = [
     {
@@ -33,10 +35,23 @@ const price = [
     }
 ]
 
+const renderRadioBox = () => (
+    price.map((value) => (
+        <Radio key={value._id} value={`${value._id}`}>{value.name}</Radio> 
+    ))
+)
+
+
 function RadioBox() {
     return (
         <div>
-            
+            <Collapse defaultActiveKey={['0']}>
+                <Panel header="Sort by Price" key="1">
+                    <Radio.Group onChange value>
+                        {renderRadioBox()}
+                    </Radio.Group>
+                </Panel>
+            </Collapse>
         </div>
     )
 }

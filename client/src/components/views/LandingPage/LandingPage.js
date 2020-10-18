@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {Icon, Col, Row, Card} from 'antd'; 
 import ImageSlider from '../../utils/ImageSlider'
 import CheckBox from './Sections/CheckBox';
+import RadioBox from './Sections/RadioBox'; 
+
 const { Meta } = Card; 
 // TODO: change slogan
 
@@ -88,10 +90,19 @@ function LandingPage() {
             </div>
 
             {/* Filter */}
-            <CheckBox 
-                handleFilters={filters => handleFilters(filters, "categories")}
-            />
-
+            <Row gutter={[16, 16]}>
+                <Col lg={12} xs={24}>
+                    <CheckBox 
+                    handleFilters={filters => handleFilters(filters, "categories")}
+                    />
+                </Col>
+                <Col lg={12} xs={24}>
+                    <RadioBox 
+                    handleFilters={filters => handleFilters(filters, "categories")}
+                    />    
+                </Col>
+            </Row>
+            
             {/* Search */}
             <br /><br />
             {Products.length === 0? 
