@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React, {useEffect, useState} from 'react'; 
 import {Icon, Col, Row, Card} from 'antd'; 
 import ImageSlider from '../../utils/ImageSlider'
+import CheckBox from './Sections/CheckBox';
 const { Meta } = Card; 
 // TODO: change slogan
 
@@ -51,6 +52,9 @@ function LandingPage() {
         </Col>
     })
 
+    const handleFilters = (filters, category) => {
+
+    }
 
     return (
         <div style={{width: '75%', margin: '3rem auto'}}>
@@ -60,8 +64,12 @@ function LandingPage() {
             </div>
 
             {/* Filter */}
-            {/* Search */}
+            <CheckBox 
+                handleFilters={filters => handleFilters(filters, "categories")}
+            />
 
+            {/* Search */}
+            <br /><br />
             {Products.length === 0? 
                 <div style={{display: 'flex', height: '300px', justifyContent: 'center', alignItems: "center"}}>
                     <h2>No postings currently...</h2>
