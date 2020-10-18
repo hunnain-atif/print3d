@@ -7,9 +7,20 @@ const { Meta } = Card;
 
 function LandingPage() {
     const [Products, setProducts] = useState([])
+    const [Skip, setSkip] = useState(0)
+    const [Limit, setLimit] = useState(8)
 
     useEffect(() => {
-        Axios.post('/api/product/getProducts')
+        const variables = {
+            skip: Skip, 
+            limit: Limit, 
+        }
+
+        getProducts(variables)
+    }, [])
+
+    const getProducts = (variables)=>{
+        Axios.post('/api/product/getProducts', variables)
         .then(response => {
             if(response.data.success) {
                 setProducts(response.data.products)
@@ -18,7 +29,15 @@ function LandingPage() {
                 alert('Failed to fetch data, Please try again later.')
             }
         })
-    }, [])
+    }
+    const onLoadMore= ()=>{
+         let skip = Skip + Limit;
+         const variables = {
+             skip: Skip, 
+             limit: Limit, 
+         }
+         getProducts(variables)
+    }
 
     const renderCards = Products.map((product, index)=> {
         return <Col lg={6} md={8} xs={24}>
@@ -33,6 +52,7 @@ function LandingPage() {
         <div style={{width: '75%', margin: '3rem auto'}}>
             <div style={{textAlign: 'center'}}>
                 <h2>print3d: Making 3D Printing Accessible <Icon type="printer"/></h2>
+                <br /><br />
             </div>
 
             {/* Filter */}
@@ -50,7 +70,7 @@ function LandingPage() {
              }
             <br /><br /> 
             <div style={{ display:'flex', justifyContent:'center'}}>
-                 <button>Load More</button>
+                 <button onClick={onLoadMore}>Load More</button>
             </div>
         </div>
     )
