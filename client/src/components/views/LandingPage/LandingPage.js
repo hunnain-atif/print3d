@@ -76,7 +76,7 @@ function LandingPage() {
         const newFilters = {...Filters}
         newFilters[category] = filters
         if(category === "price"){
-
+            
         }
         showFilteredResults(newFilters)
         setFilters(newFilters)
@@ -98,7 +98,7 @@ function LandingPage() {
                 </Col>
                 <Col lg={12} xs={24}>
                     <RadioBox 
-                    handleFilters={filters => handleFilters(filters, "categories")}
+                    handleFilters={filters => handleFilters(filters, "price")}
                     />    
                 </Col>
             </Row>
