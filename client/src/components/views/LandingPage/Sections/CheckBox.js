@@ -3,16 +3,6 @@ import { Checkbox, Collapse } from 'antd';
 
 const {Panel} = Collapse
 
-const categories = [
-    {
-        "_id": 1, 
-        "name": "3D-Model"
-    }, 
-    {
-        "_id": 2, 
-        "name": "3D-Printed Object"
-    }
-]
 
 function CheckBox(props) {
 
@@ -32,7 +22,7 @@ function CheckBox(props) {
         props.handleFilters(newChecked)
     }
 
-    const renderCheckboxLists = () => categories.map((value, index) => (
+    const renderCheckboxLists = () => props.list && props.list.map((value, index) => (
         <React.Fragment key={index}>
             <Checkbox
                 onChange={() => handleToggle(value._id)}
