@@ -5,6 +5,7 @@ import ImageSlider from '../../utils/ImageSlider'
 import CheckBox from './Sections/CheckBox';
 import RadioBox from './Sections/RadioBox';
 import {categories, price} from './Sections/Datas'
+import SearchFeature from './Sections/SearchFeature'
 
 const { Meta } = Card;
 // TODO: change slogan
@@ -14,6 +15,7 @@ function LandingPage() {
     const [Skip, setSkip] = useState(0)
     const [Limit, setLimit] = useState(8)
     const [PostSize, setPostSize] = useState(0)
+    const [SearchTerm, setSearchTerms] = useState("")
     const [Filters, setFilters] = useState({
         category: [],
         price: []
@@ -96,6 +98,10 @@ function LandingPage() {
         setFilters(newFilters)
     }
 
+    const updateSearchTerms = (newSearchTerm) => {
+        setSearchTerms(newSearchTerm)
+    }
+
     return (
         <div style={{width: '75%', margin: '3rem auto'}}>
             <div style={{textAlign: 'center'}}>
@@ -120,7 +126,11 @@ function LandingPage() {
             </Row>
 
             {/* Search */}
-            <br /><br />
+            <div style={{ display: 'flex', justifyContent:'flex-end', margin:'1rem'}}>
+                <SearchFeature
+                    refreshFunction={updateSearchTerms}
+                />
+            </div>
             {Products.length === 0?
                 <div style={{display: 'flex', height: '300px', justifyContent: 'center', alignItems: "center"}}>
                     <h2>No postings currently...</h2>
