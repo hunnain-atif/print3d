@@ -99,7 +99,17 @@ function LandingPage() {
     }
 
     const updateSearchTerms = (newSearchTerm) => {
+        const variables = {
+            skip: 0,
+            limit: Limit,
+            filters: Filters,
+            searchTerm: newSearchTerm
+        }
+
+        setSkip(0);
         setSearchTerms(newSearchTerm)
+        
+        getProducts(variables)
     }
 
     return (
