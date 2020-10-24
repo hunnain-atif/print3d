@@ -3,6 +3,7 @@ const router = express.Router();
 const { User } = require("../models/User");
 
 const { auth } = require("../middleware/auth");
+const { query } = require('express');
 
 //=================================
 //             User
@@ -18,6 +19,8 @@ router.get("/auth", auth, (req, res) => {
         lastname: req.user.lastname,
         role: req.user.role,
         image: req.user.image,
+        cart: req.user.cart, 
+        history: req.user.history
     });
 });
 
@@ -67,5 +70,47 @@ router.get("/logout", auth, (req, res) => {
         });
     });
 });
+
+router.post("/addToCart", auth, (req, res) => {
+    User.find({_id: req.user._id}, (err, userInfo) => {
+            let duplicate = false; 
+
+            userInfo.cart.forEach((item) => {
+                if(item.id === req.query.productId){
+                    duplicate = true; 
+                }
+            })
+
+            if(duplicate) {
+                User.findOneAndUpdate(
+                    {_id: req.user._id, "cart.id": req.query.productId},
+                    {$inc: {"cart.$.quantity": 1}},
+                    {new: true},
+                    (err, userInfo) => {
+                        if(err) return res.json({ success:false, err}); 
+                        res.status(200).json(userInfo.cart)
+                    }
+                )
+            } else {
+                User.findOneAndUpdate(
+                    {_id: req.user._id}, 
+                    {
+                        $push: {
+                            cart: {
+                                 id: req.query.productId,
+                                 quantity: 1, 
+                                 date: Date.now()
+                            }
+                        }
+                    }, 
+                    {new: true}, 
+                    (err, userInfo) => {
+                        if(err) return res.json({ success: false, err }); 
+                        res.status(200).json(userInfo.cart)
+                    }
+                )
+            }
+        })
+}); 
 
 module.exports = router;
