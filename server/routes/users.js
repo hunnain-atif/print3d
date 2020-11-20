@@ -4,6 +4,7 @@ const { User } = require("../models/User");
 
 const { auth } = require("../middleware/auth");
 const { query } = require('express');
+const { Product } = require('../models/Product')
 
 //=================================
 //             User
@@ -81,7 +82,7 @@ router.get('/addToCart', auth, (req, res) => {
                 duplicate = true;
             }
         })
-        
+
         if (duplicate) {
             User.findOneAndUpdate(
                 { _id: req.user._id, "cart.id": req.query.productId },
@@ -113,5 +114,32 @@ router.get('/addToCart', auth, (req, res) => {
         }
     })
 });
+
+router.get('/removeFromCart', auth, (req, res) => {
+
+    User.findOneAndUpdate(
+        { _id: req.user._id },
+        {
+            "$pull":
+                { "cart": { "id": req.query._id } }
+        },
+        { new: true },
+        (err, userInfo) => {
+            let cart = userInfo.cart;
+            let array = cart.map(item => {
+                return item.id
+            })
+
+            Product.find({ '_id': { $in: array } })
+                .populate('writer')
+                .exec((err, cartDetail) => {
+                    return res.status(200).json({
+                        cartDetail,
+                        cart
+                    })
+                })
+        }
+    )
+})
 
 module.exports = router;
