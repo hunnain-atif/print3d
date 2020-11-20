@@ -115,7 +115,7 @@ function LandingPage() {
     return (
         <div style={{width: '75%', margin: '3rem auto'}}>
             <div style={{textAlign: 'center'}}>
-                <h2>print3d: Making 3D Printing Accessible <Icon type="printer"/></h2>
+                <h2>Print3d: Making 3D Printing Accessible <Icon type="printer"/></h2>
                 <br /><br />
             </div>
 
