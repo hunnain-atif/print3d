@@ -1,4 +1,5 @@
 import React from 'react'
+import {Button} from 'antd'
 
 function UserCardBlock(props) {
 
@@ -16,10 +17,10 @@ function UserCardBlock(props) {
                 </td>
                 <td>{products.quantity}</td>
                 <td>$ {products.price} / per</td>
-                <td><button 
+                <td><Button size="large" shape="round" type="danger" 
                         onClick={() => props.removeItem(products._id)}
                         >Remove
-                    </button>
+                    </Button>
                 </td>
             </tr>
         ))
