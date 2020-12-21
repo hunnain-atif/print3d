@@ -2,8 +2,6 @@
   <br>
   <a href=""><img src=".github/Logo.png" alt="print3d" width="200"></a>
   <br>
-  print3d
-  <br>
 </h1>
 
 <h4 align="center">print3d is an online e-commerce marketplace for 3D printing and design. Browse the site to purchase 3D prints/designs or post some of your models that are ready to be purchased.</h4>
@@ -13,7 +11,7 @@
       <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg">
   </a>
   <a href="http://shields.io/">
-    <img src="https://img.shields.io/website-up-down-green-red/http/cv.lbesson.qc.to.svg" alt="Gitter">
+    <img src="https://img.shields.io/pypi/l/ansicolortags.svg" alt="Gitter">
   </a>
   <a href="http://shields.io/"><img src="https://img.shields.io/badge/Made%20with-React-1f425f.svg"></a>
 </p>
