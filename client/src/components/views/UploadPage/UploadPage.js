@@ -15,8 +15,8 @@ function UploadPage(props) {
     
     const [TitleValue, setTitleValue] = useState("")
     const [DescriptionValue, setDescriptionValue] = useState("")
-    const[PriceValue, setPriceValue] = useState(0)
-    const[CategoryValue, setCategoryValue] = useState(1)
+    const [PriceValue, setPriceValue] = useState(0)
+    const [CategoryValue, setCategoryValue] = useState(1)
     const [Images, setImages] = useState([])
 
     const onTitleChange = (event) => {

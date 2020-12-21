@@ -21,21 +21,20 @@
 <p align="center">
   <a href=""> Site </a> •
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">Tech Stack</a>
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#developers">Developers</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+<img src=".github/Demo.png">
 
 ## Key Features
 
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
+* Payment through PayPal
+  - print3d has the ability to complete purchases made using PayPal
+* Search and Filter for Products
+  - Filter by product specifications and price
+* User Settings Page
+  - Detailed user settings page with payment history, products on wish list, etc. 
 
 
 ## Tech Stack 
@@ -44,3 +43,9 @@
 * Node.js
 * Express.js
 * MongoDB
+
+
+## Developers
+
+<a href="https://github.com/hunnain-atif">Hunnain Atif</a> • <a href="https://github.com/GobishanVijikaran">Gobishan Vijikaran</a> 
+
