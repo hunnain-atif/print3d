@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href=""> Site </a> •
+  <!-- <a href=""> Site </a> • -->
   <a href="#key-features">Key Features</a> •
   <a href="#tech-stack">Tech Stack</a> •
   <a href="#developers">Developers</a>
