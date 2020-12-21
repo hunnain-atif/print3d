@@ -11,7 +11,7 @@
       <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg">
   </a>
   <a href="http://shields.io/">
-    <img src="https://img.shields.io/pypi/l/ansicolortags.svg" alt="Gitter">
+    <img src="https://img.shields.io/badge/website-In%20Maintenance-yellow" alt="Gitter">
   </a>
   <a href="http://shields.io/"><img src="https://img.shields.io/badge/Made%20with-React-1f425f.svg"></a>
 </p>
